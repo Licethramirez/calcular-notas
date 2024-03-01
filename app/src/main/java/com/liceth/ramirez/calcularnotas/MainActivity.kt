@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var ingresarNota : EditText
     private lateinit var finalizar : Button
     private lateinit var guardar : Button
+    private var estudianteActual : Estudiante = Estudiante()
 
     private var porcentajeAcumulado = 0
     val listaNotas : MutableList<Double> = mutableListOf()
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             val porcentaje = (ingresarPorcentaje.text.toString())
             val nombre = (ingresarNombre.text.toString())
 
+           estudianteActual.nombre = nombre
+            estudianteActual.porcentajes = listaPorcentaje
+            estudianteActual.notas = listaNotas
+
             if (validarVacio(nombre, nota, porcentaje)){
                 if (validarNombre(nombre) &&
                     validarNota(nota.toDouble()) &&
@@ -50,6 +55,8 @@ class MainActivity : AppCompatActivity() {
                     porcentajeAcumulado += porcentaje.toInt()
 
                     actualizarProgress(porcentajeAcumulado)
+
+
 
                     ingresarNombre.isEnabled = false
                     ingresarNota.text.clear()
@@ -89,6 +96,35 @@ class MainActivity : AppCompatActivity() {
         return porcentajeAcumulado + porcentaje <=100
     }
 
+    class Estudiante() {
 
+        var nombre : String = ""
+        var notas : List<Double> = listOf()
+        var porcentajes : List<Int> = listOf()
+
+
+        fun calcularPromedio () : Double {
+            var sumaNotas = 0.0
+            for (n in notas){
+                sumaNotas += n
+            }
+
+            return sumaNotas / notas.size
+        }
+
+
+        fun notaFinal(): Double{
+            var notaFinal : Double = 0.0
+            var contador = 0
+
+
+            for (n in notas){
+                notaFinal += (n * porcentajes[contador]) / 100
+                contador ++
+            }
+            return notaFinal
+
+        }
+    }
 
 }
