@@ -37,8 +37,8 @@
         android:layout_marginEnd="76dp"
         android:ems="10"
         android:hint="ingresar porcentaje"
-        android:textSize="24sp"
         android:inputType="number"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ingresarNombre" />
@@ -47,24 +47,56 @@
         android:id="@+id/ingresarNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="76dp"
         android:ems="10"
         android:hint="ingresar nota"
-        android:textSize="24sp"
         android:inputType="numberDecimal"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ingresarPorcentaje" />
+
+    <TextView
+        android:id="@+id/vistaPromedio"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="350dp"
+        android:layout_marginBottom="415dp"
+        android:text="Promedio:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingresarNota" />
+
+    <TextView
+        android:id="@+id/vistaNotaFinal"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+
+        android:layout_marginStart="360dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="450dp"
+        android:text="nota final:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingresarNota" />
 
     <Button
         android:id="@+id/finalizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="300dp"
         android:enabled="false"
         android:text="Finalizar"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,10 +106,25 @@
         android:id="@+id/guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
         android:text="guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/finalizar"/>
+        app:layout_constraintTop_toBottomOf="@id/finalizar" />
+
+    <Button
+        android:id="@+id/siguienteEstudiante"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:enabled="false"
+        android:text="siguiente estudiante"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guardar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
