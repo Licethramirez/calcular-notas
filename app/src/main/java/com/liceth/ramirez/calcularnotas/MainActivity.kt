@@ -107,6 +107,8 @@ class MainActivity : AppCompatActivity() {
         vistaNotaFinal.text = ""
 
         ingresarNombre.isEnabled = true
+        finalizar.isEnabled = false
+        siguienteEstudiante.isEnabled = false
     }
     fun mostrarMensaje(mensaje : String){
         Toast.makeText(this,
