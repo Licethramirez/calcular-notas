@@ -72,8 +72,6 @@ class MainActivity : AppCompatActivity() {
 
                     actualizarProgress(porcentajeAcumulado)
 
-
-
                     ingresarNombre.isEnabled = false
                     ingresarNota.text.clear()
                     ingresarPorcentaje.text.clear()
@@ -107,6 +105,8 @@ class MainActivity : AppCompatActivity() {
         ingresarPorcentaje.text.clear()
         vistaPromedio.text = ""
         vistaNotaFinal.text = ""
+
+        ingresarNombre.isEnabled = true
     }
     fun mostrarMensaje(mensaje : String){
         Toast.makeText(this,
