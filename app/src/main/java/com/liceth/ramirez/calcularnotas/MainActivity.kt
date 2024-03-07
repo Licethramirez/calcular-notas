@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private var porcentajeAcumulado = 0
     val listaNotas : MutableList<Double> = mutableListOf()
     val listaPorcentaje : MutableList<Int> = mutableListOf()
+    val listaEstudiante : MutableList<Estudiante> = mutableListOf()
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,13 @@ class MainActivity : AppCompatActivity() {
         finalizar = findViewById(R.id.finalizar)
         guardar = findViewById(R.id.guardar)
         siguienteEstudiante = findViewById(R.id.siguienteEstudiante)
+        vistaPromedio = findViewById(R.id.vistaPromedio)
+        vistaNotaFinal = findViewById(R.id.vistaNotaFinal)
+        siguienteEstudiante = findViewById(R.id.siguienteEstudiante)
+
+        siguienteEstudiante.setOnClickListener {
+            nuevoEstudiante()
+        }
 
         finalizar.setOnClickListener{
             vistaNotaFinal.text = "nota final : " + estudianteActual.notaFinal()
@@ -87,7 +95,18 @@ class MainActivity : AppCompatActivity() {
             estudianteActual.nombre = (ingresarNombre.text.toString())
             estudianteActual.porcentajes = listaPorcentaje
             estudianteActual.notas = listaNotas
+            listaEstudiante.add(estudianteActual)
         }
+    }
+
+    fun nuevoEstudiante(){
+        ingresarNombre.text.clear()
+        progreso.progress = 0
+        porcentajeAcumulado = 0
+        ingresarNota.text.clear()
+        ingresarPorcentaje.text.clear()
+        vistaPromedio.text = ""
+        vistaNotaFinal.text = ""
     }
     fun mostrarMensaje(mensaje : String){
         Toast.makeText(this,
@@ -108,11 +127,14 @@ class MainActivity : AppCompatActivity() {
         return porcentajeAcumulado + porcentaje <=100
     }
 
+
+
     class Estudiante() {
 
         var nombre : String = ""
         var notas : List<Double> = listOf()
         var porcentajes : List<Int> = listOf()
+        var estudiante : List<Estudiante> = listOf()
 
 
         fun calcularPromedio () : Double {
@@ -121,7 +143,7 @@ class MainActivity : AppCompatActivity() {
                 sumaNotas += n
             }
 
-            return sumaNotas / notas.size
+            return Math.round((sumaNotas / notas.size) * 1000.0 ) / 1000.0
         }
 
 
@@ -134,7 +156,8 @@ class MainActivity : AppCompatActivity() {
                 notaFinal += (n * porcentajes[contador]) / 100
                 contador ++
             }
-            return notaFinal
+            return Math.round(notaFinal * 1000.0 ) / 1000.0
+
 
         }
     }
