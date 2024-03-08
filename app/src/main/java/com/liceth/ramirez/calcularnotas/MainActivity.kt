@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
             return sumaNotas / notas.size
         }
 
-
+///
         fun notaFinal(): Double{
             var notaFinal : Double = 0.0
             var contador = 0
