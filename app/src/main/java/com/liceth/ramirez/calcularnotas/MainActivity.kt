@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
 
         siguienteEstudiante.setOnClickListener {
             nuevoEstudiante()
+            listaPorcentaje.clear()
+            listaNotas.clear()
+
         }
 
         finalizar.setOnClickListener{
@@ -105,6 +108,7 @@ class MainActivity : AppCompatActivity() {
         ingresarPorcentaje.text.clear()
         vistaPromedio.text = ""
         vistaNotaFinal.text = ""
+
 
         ingresarNombre.isEnabled = true
         finalizar.isEnabled = false
