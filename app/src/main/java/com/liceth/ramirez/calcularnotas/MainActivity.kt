@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity() {
                 sumaNotas += n
             }
 
-            return Math.round((sumaNotas / notas.size) * 1000.0 ) / 1000.0
+            return sumaNotas / notas.size
         }
 
 
@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
                 notaFinal += (n * porcentajes[contador]) / 100
                 contador ++
             }
-            return Math.round(notaFinal * 1000.0 ) / 1000.0
+            return notaFinal
 
 
         }
